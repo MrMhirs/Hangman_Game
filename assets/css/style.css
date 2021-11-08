@@ -1,0 +1,59 @@
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.gridbuttons {
+    color: #999;
+    letter-spacing: 5px;
+    margin: 20px auto 0;
+    text-align: center;
+    width: 400px;
+  }
+
+  .container {
+    position: static;
+    margin: 15% 30% ;
+}
+
+.play {
+    justify-content: center;
+    text-align: center;
+}
+
+
+.gridbuttons{
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(10, 3fr);
+    justify-content: center;
+    align-items: center;
+
+}
+
+#key {
+    padding: 30%;
+}
+
+.maindisplay {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+#currentWord span {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  #letters {
+    color: #999;
+    letter-spacing: 5px;
+    margin: 20px auto 0;
+    text-align: center;
+    width: 400px;
+  }
+
+  #currentWord {
+      justify-content: center;
+      padding-top: 5em;
+  }
