@@ -5,40 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="/javascript/main.js"></script>
+    <script src="/javascript/main.js" defer></script>
     <title>HangMan Game</title>
 </head>
 <body>
-    <section id="user-page"></section>
-        <div class="container">
-        <header>
-            <h1>Hangman Game</h1>
-        </header>
+  <div class="container">
+      <h1 class="title">Hangman Game</h1>
 
         <input type="text" id="username" required placeholder="Enter Player Name"></p>
         <button class="btn-click" onclick="test()">PLAY</button>
-        </div>
+        </h1>
 
 
 
-        <div class="container">
 
-        </div>
-
-        <div class="col-md-5">
-            <div class="play">
-              <h3>Guess the fruit!</h3>
-              <br>
+            <div class="container">
+                <h1 class="title-game">Guess the fruit !</h1>
+                <div class="user-scores"></div>
+                <div id="theWord">Word goes here</div>
             </div>
-          </div>
-<div id="game" class="hide">
-            <div id="currentWord"></div>
-          </div>
-          
-        <div class="display">
-        </div>
-
-            <div class="gridbuttons">
+              
+              <div class="gridbuttons">
                 <button id="key" class="btn q">Q</button>
                 <button id="key" class="btn w">W</button>
                 <button id="key" class="btn e">E</button>
@@ -66,38 +53,7 @@
                 <button id="key" class="btn b">B</button>
                 <button id="key" class="btn n">N</button>
                 <button id="key" class="btn m">M</button>
-            </div>
-
-            <div id="currentWord">
-                <span>T</span>
-                <span>H</span>
-                <span>I</span>
-                <span>S</span>
-                <span>I</span>
-                <span>S</span>
-                <span>A</span>
-                <span>T</span>
-                <span>E</span>
-                <span>S</span>
-                <span>T</span>
-            </div>
-
-
-            <div class="game">
-                <p><span id="win-counter">Wins: </span></p>
-                <p><span id="loss-counter">Losses: </span></p>
-            </div>
-
-
-
-          <!-- <div id="you-win" class="hide">
-            <p>Good job, you saved our man!</p>
-          </div>
-          
-          <div id="game-over" class="hide">
-            <p>Game over!</p>
-          </div> -->
-
+              </div>
 
 
 

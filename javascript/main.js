@@ -4,40 +4,54 @@ function test (){
     console.log(localStorage.getItem("playerName"))
 }
 
-function hangman () {
-    this.fruits = ["fig", "apple", "banana","coconut", "pineapple", "strawberry"]
-    this.selectedWord = "";
-    this.lettersInWord = [];
-    this.wrongGuess = [];
-    this.selectedWord = this.getWord();
+const fruits = [
+    "fig",
+    "apple",
+    "banana",
+    "coconut",
+    "pineapple",
+    "strawberry"
+]
+
+var answer = "";
+var mistakes = 0;
+var guessed = [];
+var wordStatus = null;
+document.getElementById("key").innerHTML
+
+
+function randomWord() {
+    answer = fruits[Math.floor(Math.random() * fruits.length)];
+    console.log(answer)
 }
 
- // Choosing random word and assign it to selectedWord //
-hangman.prototype.getWord = function () {
-    var random = Math.floor(Math.random() * this.fruits.length);
-    this.selectedWord = parseInt("fruits")
-    //console.log(this.selectedWord)
-    return this.fruits[random];
-};
 
- // Display btn selected 
-var btns= document.querySelectorAll(".btn") //poner btn en pantalla
-for (const btn of btns) {
-    var text=btn.innerText
-    if(text = btn.innerText){ 
-        btn.addEventListener("click", displayletter)
+
+function guessedLetter(chosenKey) {
+    guessed.indexOf(chosenKey) === -1 ? guessed.push(chosenKey) : null;
+    document.getElementById(chosenKey).setAttribute("disable", true);
+    alert(answer);
+
+
+    if (answer.indexOf(chosenKey) >=0) {
+        guessedWord();
     }
-
-
-    function displayLetter(even){ // pasan todos los botones
-        var letterSaved = result.value; //ver la letra actual
-        var letterDisplay = even.srcElement.firstChild.data; // grab letter selected
-        var classBtn = even.srcElement.classBtn // grabs the class of the btn
-    }
+}
 
 
 
+// Check if the letter exist in guessed array, if it does > 0 = true or false (.join= no commas)
+function guessedWord() {
+    wordStatus = answer.split("").map(key => (guessed.indexOf(fruits) >= 0 ? key : " _ ")).join("");
+
+    document.getElementById("theWord").innerHTML = wordStatus
+}
 
 
-        var winCounter  = 0;
-        var lossCounter = 0;
+
+
+
+
+randomWord();
+guessedWord();
+
