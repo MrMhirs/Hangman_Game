@@ -4,8 +4,6 @@ function test (){
     console.log(localStorage.getItem("playerName"))
 }
 
-
-
 function hangman () {
     this.fruits = ["fig", "apple", "banana","coconut", "pineapple", "strawberry"]
     this.selectedWord = "";
@@ -41,6 +39,5 @@ for (const btn of btns) {
 
 
 
-// // Game counters //
-//     var winCounter  = 0;
-//     var lossCounter = 0;
+        var winCounter  = 0;
+        var lossCounter = 0;
