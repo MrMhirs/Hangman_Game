@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="/javascript/main.js" defer></script>
+    <script src="/Hangman_Game/javascript/data.js" defer></script>
     <title>HangMan Game</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
       <h1 class="title">Hangman Game</h1>
 
         <input type="text" id="username" required placeholder="Enter Player Name"></p>
-        <button class="btn-click" onclick="test()">PLAY</button>
+        <button class="btn-click" onclick="game()">PLAY</button>
         </h1>
 
 
@@ -25,36 +25,49 @@
                 <div id="theWord">Word goes here</div>
             </div>
               
-              <div class="gridbuttons">
-                <button id="key" class="btn q">Q</button>
-                <button id="key" class="btn w">W</button>
-                <button id="key" class="btn e">E</button>
-                <button id="key" class="btn r">R</button>
-                <button id="key" class="btn t">T</button>
-                <button id="key" class="btn y">Y</button>
-                <button id="key" class="btn u">U</button>
-                <button id="key" class="btn i">I</button>
-                <button id="key" class="btn o">O</button>
-                <button id="key" class="btn p">P</button>
-                <button id="key" class="btn a">A</button>
-                <button id="key" class="btn s">S</button>
-                <button id="key" class="btn d">D</button>
-                <button id="key" class="btn f">F</button>
-                <button id="key" class="btn g">G</button>
-                <button id="key" class="btn h">H</button>
-                <button id="key" class="btn j">J</button>
-                <button id="key" class="btn k">K</button>
-                <button id="key" class="btn l">L</button>
-                <button id="key" class="btn ñ">Ñ</button>
-                <button id="key" class="btn z">Z</button>
-                <button id="key" class="btn x">X</button>
-                <button id="key" class="btn c">C</button>
-                <button id="key" class="btn v">V</button>
-                <button id="key" class="btn b">B</button>
-                <button id="key" class="btn n">N</button>
-                <button id="key" class="btn m">M</button>
+              <div class="keys">
+                
+                <button id="key" class="btn letter" value="Q">Q</button>
+                <button id="key" class="btn letter" value="W">W</button>
+                <button id="key" class="btn letter" value="E">E</button>
+                <button id="key" class="btn letter" value="R">R</button>
+                <button id="key" class="btn letter" value="T">T</button>
+                <button id="key" class="btn letter" value="Y">Y</button>
+                <button id="key" class="btn letter" value="U">U</button>
+                <button id="key" class="btn letter" value="I">I</button>
+                <button id="key" class="btn letter" value="O">O</button>
+                <button id="key" class="btn letter" value="P">P</button>
+                <button id="key" class="btn letter" value="A">A</button>
+                <button id="key" class="btn letter" value="S">S</button>
+                <button id="key" class="btn letter" value="D">D</button>
+                <button id="key" class="btn letter" value="F">F</button>
+                <button id="key" class="btn letter" value="G">G</button>
+                <button id="key" class="btn letter" value="H">H</button>
+                <button id="key" class="btn letter" value="J">J</button>
+                <button id="key" class="btn letter" value="K">K</button>
+                <button id="key" class="btn letter" value="L">L</button>
+                <button id="key" class="btn letter" value="Ñ">Ñ</button>
+                <button id="key" class="btn letter" value="Z">Z</button>
+                <button id="key" class="btn letter" value="X">X</button>
+                <button id="key" class="btn letter" value="C">C</button>
+                <button id="key" class="btn letter" value="V">V</button>
+                <button id="key" class="btn letter" value="B">B</button>
+                <button id="key" class="btn letter" value="N">N</button>
+                <button id="key" class="btn letter" value="M">M</button>
               </div>
+              <div class="container2">
+                <input type="text" id="guessBox" class>
+                <button id="guessWordButton" class="button" onclick="guessedWord()">Guess Word</button>
 
+                <p>Wins: </p>
+                <p><span id="num-of-wins"></span></p>
+                <p>Current Word: </p><br />
+                <p><span id="active-word"></span></p>
+                <p>Letters already guessed: </p><br />
+                <p><span id="letters-guessed"></span></p>
+                <p>Number of guesses remaining: </p><br />
+                <p><span id="guesses-remain"></span></p><br />
+              </div>
 
 
 </body>
