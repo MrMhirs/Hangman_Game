@@ -34,6 +34,8 @@ for (i in letters/* i = 0; i < letters.length; i++ */) {
 let btnLetters = document.querySelectorAll('.btn-letters');
 const usedLetters = document.querySelector('.clicked-letters')
 
+
+
 // CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
 btnLetters.forEach(element => {
     var btnContent = element.innerHTML;
@@ -45,11 +47,6 @@ btnLetters.forEach(element => {
 });
 
 
-var currentWord = []
-var answerWord = []
-var lettersReset = "";
-
-
 const fruits = [
     "fig",
     "apple",
@@ -58,12 +55,12 @@ const fruits = [
     "pineapple",
     "strawberry"
 ];
-
+var currentWord = []
 // Selecting random word //
 var answer = fruits[Math.floor(Math.random() * fruits.length)];
     console.log(answer)
 
-// Underscores of the word
+// Underscores for the word
 for (i = 0; i < answer.length; i++) {
     currentWord.push("_");
   }
