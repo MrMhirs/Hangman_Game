@@ -1,15 +1,4 @@
 
-
-
-let fruits = [
-    "fig",
-    "apple",
-    "banana",
-    "coconut",
-    "pineapple",
-    "strawberry"
-];
-
 /* Game */
 
 const youWon = "You Won!";
@@ -22,7 +11,6 @@ function Game()
 	let guessedLetters = [];
 	let maskedWord = "";
 	let incorrectGuesses = 0;
-	let possibleGuesses = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	let won = false;
 	let lost = false;
 	const maxGuesses = 7;
