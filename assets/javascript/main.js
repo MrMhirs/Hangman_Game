@@ -1,3 +1,11 @@
+// Using LocalStorage to save players name//
+function playerName (){
+    const playerName = document.getElementById("userName")
+    localStorage.setItem("playerName",playerName.value)
+    console.log(localStorage.getItem("playerName"))
+}
+
+
 const keyboard = document.querySelector( '#injectLetters' );
 
 let alphabet;
@@ -26,6 +34,7 @@ for (i in letters/* i = 0; i < letters.length; i++ */) {
 let btnLetters = document.querySelectorAll('.btn-letters');
 const usedLetters = document.querySelector('.clicked-letters')
 
+// CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
 btnLetters.forEach(element => {
     var btnContent = element.innerHTML;
     element.addEventListener('click', () => {
@@ -36,9 +45,32 @@ btnLetters.forEach(element => {
 });
 
 
+var currentWord = []
+var answerWord = []
+var lettersReset = "";
 
 
-// CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
+const fruits = [
+    "fig",
+    "apple",
+    "banana",
+    "coconut",
+    "pineapple",
+    "strawberry"
+];
+
+// Selecting random word //
+var answer = fruits[Math.floor(Math.random() * fruits.length)];
+    console.log(answer)
+
+// Underscores of the word
+for (i = 0; i < answer.length; i++) {
+    currentWord.push("_");
+  }
+  document.getElementById("underLine").innerHTML = currentWord.join(" ");
+
+
+
 
 
 

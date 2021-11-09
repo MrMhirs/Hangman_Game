@@ -16,10 +16,10 @@
         <!-- USER CONTAINER -->
         <div class="user-container">
             <p>Choose your name</p>
-            <span class="username">Username</span>
-            <input type="text" class="username">
+            <span class="username">Player tag</span>
+            <input type="text" id="userName" class="userName">
             <div><a href="#game-page"></div>
-            <button class="start">Start Game</button>
+            <button class="start" onclick="playerName()">Start Game</button>
             </a>
         </div>
         <!-- USER SCORES CONTAINER -->
@@ -95,7 +95,7 @@
                     <p>Guess the word</p>
                 </div>
                 <!-- UNDERLINED LETTERS CONTAINER-->
-                <div class="underline">
+                <div id="underLine"class="underline">
                     <span>_ _ _ _ </span>
                 </div>
             </div>
