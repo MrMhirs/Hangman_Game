@@ -94,18 +94,20 @@
                 <div>
                     <p>Guess the word</p>
                 </div>
-                <!-- UNDERLINE CONTAINER-->
+                <!-- UNDERLINED LETTERS CONTAINER-->
                 <div class="underline">
                     <span>_ _ _ _ </span>
                 </div>
             </div>
             <!-- CLICKED LETTERS CONTAINER-->
             <div class="clicked-letters">
-                <span class="used-letters">a b c d e</span>
+                <span class="used-letters" id="usedLetters"></span>
             </div>
             <!-- KEYBOARD LETTERS CONTAINER-->
             <div class="letters-container">
-                <span id="injectLetters">abcdef...<br>hijklm</span>
+                <div class="keyboard">
+                    <span class="lettersBtn" id="injectLetters"></span>
+                </div>
             </div>
         </div>
 
@@ -225,4 +227,5 @@
     </section>
     <script src="./assets/javascript/main.js"></script>
 </body>
+
 </html>
