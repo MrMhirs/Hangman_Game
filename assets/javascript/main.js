@@ -5,6 +5,14 @@ function playerName (){
     console.log(localStorage.getItem("playerName"))
 }
 
+const fruits = [
+    "fig",
+    "apple",
+    "banana",
+    "coconut",
+    "pineapple",
+    "strawberry"
+];
 
 const keyboard = document.querySelector( '#injectLetters' );
 
@@ -35,26 +43,6 @@ let btnLetters = document.querySelectorAll('.btn-letters');
 const usedLetters = document.querySelector('.clicked-letters')
 
 
-
-// CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
-btnLetters.forEach(element => {
-    var btnContent = element.innerHTML;
-    element.addEventListener('click', () => {
-    keyboard.removeChild(element);
-    usedLetters.appendChild(element)
-
-    })
-});
-
-
-const fruits = [
-    "fig",
-    "apple",
-    "banana",
-    "coconut",
-    "pineapple",
-    "strawberry"
-];
 var currentWord = []
 // Selecting random word //
 var answer = fruits[Math.floor(Math.random() * fruits.length)];
@@ -66,6 +54,32 @@ for (i = 0; i < answer.length; i++) {
   }
   document.getElementById("underLine").innerHTML = currentWord.join(" ");
 
+// CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
+btnLetters.forEach(element => {
+    var btnContent = element.innerHTML;
+    element.addEventListener('click', () => {
+    keyboard.removeChild(element);
+    usedLetters.appendChild(element)
+    checkIfPresent(element.value);
+    })
+});
+
+
+
+function checkIfPresent(letter) {
+    const aux = answer.split('')                                // Created variable to split answer
+    console.log(currentWord)
+    console.log(aux)
+    // const currWordArr = answer.split();
+    while (aux.includes(letter)){                               // While splitted answer includes letter
+        var index = aux.indexOf(letter)
+        delete aux[index]                                       // delete letter from index of answer
+        currentWord[index] = letter;                            // replace underscores for letters
+        console.log(index)
+    }
+    console.log(currentWord)
+    document.getElementById("underLine").innerHTML = currentWord.join(" ");
+}
 
 
 
