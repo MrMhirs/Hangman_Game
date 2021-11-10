@@ -54,6 +54,7 @@ for (i = 0; i < answer.length; i++) {
   }
   document.getElementById("underLine").innerHTML = currentWord.join(" ");
 
+
 // CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
 btnLetters.forEach(element => {
     var btnContent = element.innerHTML;
@@ -65,23 +66,38 @@ btnLetters.forEach(element => {
 });
 
 
-
+// Checking if letter is present in word and merge it to result
 function checkIfPresent(letter) {
     const aux = answer.split('')                                // Created variable to split answer
-    console.log(currentWord)
+
     console.log(aux)
     // const currWordArr = answer.split();
     while (aux.includes(letter)){                               // While splitted answer includes letter
         var index = aux.indexOf(letter)
         delete aux[index]                                       // delete letter from index of answer
-        currentWord[index] = letter;                            // replace underscores for letters
-        console.log(index)
+        currentWord[index] = letter;                          // replace underscores for letters
+
     }
-    console.log(currentWord)
+    // else {
+    //     if (currentWord.indexOf("_") == -1) {winPage()}
+    // }
     document.getElementById("underLine").innerHTML = currentWord.join(" ");
 }
 
+var animate = function () {
 
+    document.getElementById("body").style.visibility = "visible";
+    document.getElementById("armL").style.visibility = "visible";
+    document.getElementById("armR").style.visibility = "visible";
+    document.getElementById("legL").style.visibility = "visible";
+    document.getElementById("LegR").style.visibility = "visible";
+}
 
+// currentWord.prototype.isFinished = function () {
+//     return ().index ("_") < 0;
+// }
 
+// currentWord.prototype.gameOver = function () {
+//     return  === 0;
+//   };
 

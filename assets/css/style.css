@@ -1,8 +1,25 @@
 /*  CLASS TOGGLE HIDDEN */
 
-.hide {
-  visibility: visible;
+#head {
+  visibility: hidden;
 }
+
+#body {
+  visibility: hidden;
+}
+#armL {
+  visibility: hidden;
+}
+#armR {
+  visibility: hidden;
+}
+#legL {
+  visibility: hidden;
+}
+#legR {
+  visibility: hidden;
+}
+
 
 /* USER PAGE (first page) */
 
