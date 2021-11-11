@@ -101,46 +101,51 @@ const figureParts = document.querySelectorAll(".figure-part");
 
 // Display parts
 
-var countLife = 7
+var countLife = 6
 
 function changeLifeGame() {
     countLife--
     console.log(countLife)
     switch (countLife) {
-        case 6:
+        case 5:
             document.getElementById("head").classList.remove("figure-part");
 
             break;
 
-        case 5:
+        case 4:
             document.getElementById("body").classList.remove("figure-part");
             break;
 
-        case 4:
+        case 3:
             document.getElementById("armL").classList.remove("figure-part");
             break;
 
-        case 3:
+        case 2:
             document.getElementById("armR").classList.remove("figure-part");
             break;
 
-        case 2:
+        case 1:
             document.getElementById("legL").classList.remove("figure-part");
             break;
 
-        case 1:
-            document.getElementById("legR").classList.remove("figure-part");
-            break;
-
         case 0:
+            document.getElementById("legR").classList.remove("figure-part");
             document.getElementsByClassName("lost-page")[0].scrollIntoView();
             countLife = 0
+            break;
     }
 }
 
 function youWin() {
     document.getElementsByClassName("won-page")[0].scrollIntoView();
 }
+
+var playAgainBtn = document.querySelectorAll(".playAgain")
+    playAgainBtn.forEach(element => {
+        element.addEventListener("click", () => {
+            document.getElementsByClassName("won-page")[0].scrollIntoView();
+        });
+console.log(playAgainBtn)
 
 
 
