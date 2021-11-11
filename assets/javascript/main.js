@@ -1,35 +1,30 @@
-// Using LocalStorage to save players name//
-function playerName () {
-    const playerName = document.getElementById( "userName" );
-    localStorage.setItem( "playerName", playerName.value );
-    console.log( localStorage.getItem( "playerName" ) );
-}
-
-const keyboard = document.querySelector( '#injectLetters' );
-const usedLetters = document.querySelector( '.clicked-letters' );
-const startGameBtn = document.getElementById( 'startGameBtn' );
-const lettersClicked = [];
-const currentWord = [];
-const answerWord = [];
 const fruits = [
     "fig",
     "apple",
     "banana",
     "coconut",
     "pineapple",
-    "strawberry"
+    "strawberry",
+    "pomegranate"
 ];
+
+const keyboard = document.querySelector( '#injectLetters' );
+const usedLetters = document.querySelector( '.clicked-letters' );
+const startGameBtn = document.getElementById( 'startGameBtn' );
+const lettersClicked = [];
+const answerWord = [];
 const HISTORY = [];
 let players = [];
 
-const answer = fruits[Math.floor( Math.random() * fruits.length )]; // Selecting random word from fruits array
 let alphabet;
 let letters;
 let letterBtn;
 let lettersReset = "";
-let username;
 let currId = 0;
-
+let allPlayers;
+let username = document.getElementById( 'userName' ).value;
+let age = document.getElementById( 'age' ).value;
+let score = document.getElementById( 'score' ).value;
 let playersIds;
 
 // For loop to generate the alphabet from "A" to "Z"
@@ -53,43 +48,129 @@ for ( i = 0; i < letters.length; i++ ) {
     letterBtn.innerHTML = letters[i];
     keyboard.appendChild( letterBtn );
 
-    // CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
-    btnLetters.forEach( element => {
-        var btnContent = element.innerHTML;
-        element.addEventListener( 'click', () => {
-            keyboard.removeChild( element );
-            usedLetters.appendChild( element );
-            checkIfPresent( element.value );
-        } );
-    } );
+let btnLetters = document.querySelectorAll('.btn-letters');
+const usedLetters = document.querySelector('.clicked-letters')
 
-    const usedLetters = document.querySelector( '.clicked-letters' );
 
-    var currentWord = [];
-    // Selecting random word //
-    var answer = fruits[Math.floor( Math.random() * fruits.length )];
-    console.log( answer );
+// Selecting random word //
+var answer = fruits[Math.floor(Math.random() * fruits.length)];
 
-    // Underscores for the word
-    for ( i = 0; i < answer.length; i++ ) {
-        currentWord.push( "_" );
+// Underscores for the word
+for (i = 0; i < answer.length; i++) {
+    currentWord.push("_");
+}
+document.getElementById("underLine").innerHTML = currentWord.join(" ");
+
+
+// CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
+btnLetters.forEach(element => {
+    var btnContent = element.innerHTML;
+    element.addEventListener('click', () => {
+    keyboard.removeChild(element);
+    usedLetters.appendChild(element)
+    checkIfPresent(element.value);
+    })
+});
+
+function checkIfPresent(letter) {
+    const aux = answer.split('')
+    console.log(currentWord.join(""))
+    if (currentWord.join("") == answer){
+
+        youWin();
     }
-    document.getElementById( "underLine" ).innerHTML = currentWord.join( " " );
+    console.log(aux)
+    if (!aux.includes(letter))
+    changeLifeGame();
 
 
-    function checkIfPresent ( letter ) {
-        const aux = answer.split( '' );                                // Created variable to split answer
 
-        // const currWordArr = answer.split();
-        while ( aux.includes( letter ) ) {                               // While splitted answer includes letter
-            var index = aux.indexOf( letter );
-            delete aux[index];                                       // delete letter from index of answer
-            currentWord[index] = letter;                            // replace underscores for letters
+
+    while (aux.includes(letter)){
+        var index = aux.indexOf(letter)
+        delete aux[index]
+        currentWord[index] = letter;
+        console.log(index)
+    }
+    if (currentWord.join("") == answer){
+
+        youWin();
+    }
+
+    console.log(currentWord)
+    document.getElementById("underLine").innerHTML = currentWord.join(" ");
+}
+
+
+const figureParts = document.querySelectorAll(".figure-part");
+
+// Display parts
+
+var countLife = 7
+
+function changeLifeGame() {
+    countLife--
+    console.log(countLife)
+    switch (countLife) {
+        case 6:
+            document.getElementById("head").classList.remove("figure-part");
+
+            break;
+
+        case 5:
+            document.getElementById("body").classList.remove("figure-part");
+            break;
+
+        case 4:
+            document.getElementById("armL").classList.remove("figure-part");
+            break;
+
+        case 3:
+            document.getElementById("armR").classList.remove("figure-part");
+            break;
+
+        case 2:
+            document.getElementById("legL").classList.remove("figure-part");
+            break;
+
+        case 1:
+            document.getElementById("legR").classList.remove("figure-part");
+            break;
+
+        case 0:
+            document.getElementsByClassName("lost-page")[0].scrollIntoView();
+            countLife = 0
+    }
+}
+
+function youWin() {
+    document.getElementsByClassName("won-page")[0].scrollIntoView();
+}
+
+    // all users
+
+// user Data
+
+    function player ( name, idade, total ) {
+
+        return {
+            username: name,
+            age: idade,
+            score: total,
+        };
+
+    };
+
+    function getUser () {
+
+        if ( localStorage.getItem( "allPlayers" ) == null ) {
+            return [];               // me retorna uma array vazia se nao tem nada no localStorage
         }
-        document.getElementById( "underLine" ).innerHTML = currentWord.join( " " );
+        return JSON.parse( localStorage.getItem( "allPlayers" ) );  // retonra o que tem no local storage parse
     }
 
-
-
-
-
+    function addPlayer () {
+        userInputs = player( username, age, score );
+        allPlayers.push( userInputs );
+        localStorage.setItem( "allPlayers", JSON.stringify( allPlayers ) );
+    }

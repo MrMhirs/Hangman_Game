@@ -71,37 +71,35 @@
         <div class="main-container">
             <!-- SVG IMAGE -->
             <div class="image-container">
-                <svg height="300" width="300">
+                <svg height="300" width="300" id="hangman" class="hide">
                     <line x1="10" y1="250" x2="200" y2="250" />
                     <line x1="105" y1="250" x2="105" y2="20" />
                     <line x1="103" y1="20" x2="202" y2="20" />
                     <line x1="200" y1="20" x2="200" y2="60" />
-                    <g id="hangman" class="hide">
-                        <!-- head-->
-                        <g id="head">
-                            <circle cx="200" cy="80" r="20" stroke="black" stroke-width="4" fill="white" />
-                            <circle cx="193" cy="80" r="4" />
-                            <circle cx="207" cy="80" r="4" />
-                            <line x1="190" y1="78" x2="196" y2="84" />
-                            <line x1="204" y1="78" x2="210" y2="84" />
-                            <line x1="190" y1="84" x2="196" y2="78" />
-                            <line x1="204" y1="84" x2="210" y2="78" />
-                        </g>
-                        <!-- body parts -->
-                        <g id="fullBody">
-                            <line id="body" x1="200" y1="100" x2="200" y2="150" />
-                            <line id="armL" x1="200" y1="120" x2="170" y2="140" />
-                            <line id="armR" x1="200" y1="120" x2="230" y2="140" />
-                            <line id="legL" x1="200" y1="150" x2="180" y2="190" />
-                            <line id="legR" x1="200" y1="150" x2="220" y2="190" />
-                        </g>
+                    <!-- head-->
+                    <g id="head" class="figure-part">
+                    <circle cx="200" cy="80" r="20" stroke="black" stroke-width="4" fill="white" />
+                    <circle cx="193" cy="80" r="4" />
+                    <circle cx="207" cy="80" r="4" />
+                    <line x1="190" y1="78" x2="196" y2="84" />
+                    <line x1="204" y1="78" x2="210" y2="84" />
+                    <line x1="190" y1="84" x2="196" y2="78" />
+                    <line x1="204" y1="84" x2="210" y2="78" />
+                    </g>
+                    <!-- body parts -->
+                    <g id="fullBody">
+                    <line id="body" class="figure-part" x1="200" y1="100" x2="200" y2="150" />
+                    <line id="armL" class="figure-part" x1="200" y1="120" x2="170" y2="140" />
+                    <line id="armR" class="figure-part" x1="200" y1="120" x2="230" y2="140" />
+                    <line id="legL" class="figure-part" x1="200" y1="150" x2="180" y2="190" />
+                    <line id="legR" class="figure-part" x1="200" y1="150" x2="220" y2="190" />
                     </g>
                 </svg>
             </div>
             <!-- GUESS CONTAINER-->
             <div class="guess-container">
                 <div>
-                    <p>Guess the word</p>
+                    <p>Guess the fruit</p>
                 </div>
                 <!-- UNDERLINED LETTERS CONTAINER-->
                 <div id="underLine" class="underline">
@@ -195,7 +193,9 @@
     </section>
 
     <!-- LOST PAGE -->
-    <section class="lost-page">
+    <a name="lost-page"></a>
+    <section class="lost-page" >
+        <div><a href="#lost-page"></div>
         <div class="lost-container">
             <p>You Lost!</p>
             <p>You lost in <span>50</span><span>seconds</span>.</p>
@@ -234,7 +234,6 @@
         </div>
 
     </section>
-<script src="assets/javascript/data.js"></script>
     <script src="./assets/javascript/main.js"></script>
 </body>
 

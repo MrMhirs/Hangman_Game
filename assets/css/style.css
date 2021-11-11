@@ -1,8 +1,9 @@
 /*  CLASS TOGGLE HIDDEN */
 
-.hide {
-  visibility: hidden;
+.figure-part {
+  display: none;
 }
+
 
 /* USER PAGE (first page) */
 
