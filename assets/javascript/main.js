@@ -10,6 +10,7 @@ const fruits = [
     "apple",
     "banana",
     "coconut",
+    "marakuya",
     "pineapple",
     "strawberry"
 ];
@@ -65,39 +66,84 @@ btnLetters.forEach(element => {
     })
 });
 
-
-// Checking if letter is present in word and merge it to result
 function checkIfPresent(letter) {
     const aux = answer.split('')                                // Created variable to split answer
+    console.log(currentWord)
+    console.log(aux)  
+    if (!aux.includes(letter))
+    changeLifeGame();
 
-    console.log(aux)
     // const currWordArr = answer.split();
     while (aux.includes(letter)){                               // While splitted answer includes letter
         var index = aux.indexOf(letter)
         delete aux[index]                                       // delete letter from index of answer
-        currentWord[index] = letter;                          // replace underscores for letters
-
+        currentWord[index] = letter;                            // replace underscores for letters
+        console.log(index)
     }
-    // else {
-    //     if (currentWord.indexOf("_") == -1) {winPage()}
-    // }
+
+    console.log(currentWord)
     document.getElementById("underLine").innerHTML = currentWord.join(" ");
 }
 
-var animate = function () {
 
-    document.getElementById("body").style.visibility = "visible";
-    document.getElementById("armL").style.visibility = "visible";
-    document.getElementById("armR").style.visibility = "visible";
-    document.getElementById("legL").style.visibility = "visible";
-    document.getElementById("LegR").style.visibility = "visible";
+const figureParts = document.querySelectorAll(".figure-part");
+
+// Display parts
+
+var countLife = 7
+
+function changeLifeGame() {
+    countLife--
+    console.log(countLife)
+    switch (countLife) {
+        case 6:
+            document.getElementById("head").classList.remove("figure-part");
+
+            break;
+
+        case 5:
+            document.getElementById("body").classList.remove("figure-part");
+            break;
+
+        case 4:
+            document.getElementById("armL").classList.remove("figure-part");
+            break;
+
+        case 3:
+            document.getElementById("armR").classList.remove("figure-part");
+            break;
+
+        case 2:
+            document.getElementById("legL").classList.remove("figure-part");
+            break;
+
+        case 1:
+            document.getElementById("legR").classList.remove("figure-part");
+            break;
+
+        case 0:
+            document.getElementsByClassName("lost-page")[0].scrollIntoView();
+            countLife = 0
+    }
 }
 
-// currentWord.prototype.isFinished = function () {
-//     return ().index ("_") < 0;
-// }
+const playAgainBtn = document.getElementsByClassName('playAgain')
+console.log(playAgainBtn);
+    // playAgainBtn.forEach(element => {
+    //     element.addEventListener("click", () => {
+    //         countLife = 7
+    //         document.getElementsByClassName("first-page")[0].scrollTo(0,0);
+    //         answer = fruits[Math.floor(Math.random() * fruits.length)];
+    //     });
+    // });
+    for (const element of playAgainBtn) {
+    element.addEventListener("click", () => {
+            countLife = 7
+            document.getElementsByClassName("first-page")[0].scrollTo(0,0);
+            answer = fruits[Math.floor(Math.random() * fruits.length)];
+    });
+    }
 
-// currentWord.prototype.gameOver = function () {
-//     return  === 0;
-//   };
+
+
 
