@@ -10,9 +10,9 @@ const fruits = [
     "apple",
     "banana",
     "coconut",
-    "marakuya",
     "pineapple",
-    "strawberry"
+    "strawberry",
+    "pomegranate"
 ];
 
 const keyboard = document.querySelector( '#injectLetters' );
@@ -52,8 +52,8 @@ var answer = fruits[Math.floor(Math.random() * fruits.length)];
 // Underscores for the word
 for (i = 0; i < answer.length; i++) {
     currentWord.push("_");
-  }
-  document.getElementById("underLine").innerHTML = currentWord.join(" ");
+}
+document.getElementById("underLine").innerHTML = currentWord.join(" ");
 
 
 // CLICKED LETTERS NO KEYBOARD DELETED FROM KEYBOARD
@@ -67,18 +67,29 @@ btnLetters.forEach(element => {
 });
 
 function checkIfPresent(letter) {
-    const aux = answer.split('')                                // Created variable to split answer
-    console.log(currentWord)
-    console.log(aux)  
+    const aux = answer.split('')
+    console.log(currentWord.join(""))
+    console.log(answer)
+    if (currentWord.join("") == answer){
+
+        youWin();
+    }
+    console.log(aux)
     if (!aux.includes(letter))
     changeLifeGame();
 
-    // const currWordArr = answer.split();
-    while (aux.includes(letter)){                               // While splitted answer includes letter
+
+
+
+    while (aux.includes(letter)){
         var index = aux.indexOf(letter)
-        delete aux[index]                                       // delete letter from index of answer
-        currentWord[index] = letter;                            // replace underscores for letters
+        delete aux[index]
+        currentWord[index] = letter;
         console.log(index)
+    }
+    if (currentWord.join("") == answer){
+    
+        youWin();
     }
 
     console.log(currentWord)
@@ -127,22 +138,12 @@ function changeLifeGame() {
     }
 }
 
-const playAgainBtn = document.getElementsByClassName('playAgain')
-console.log(playAgainBtn);
-    // playAgainBtn.forEach(element => {
-    //     element.addEventListener("click", () => {
-    //         countLife = 7
-    //         document.getElementsByClassName("first-page")[0].scrollTo(0,0);
-    //         answer = fruits[Math.floor(Math.random() * fruits.length)];
-    //     });
-    // });
-    for (const element of playAgainBtn) {
-    element.addEventListener("click", () => {
-            countLife = 7
-            document.getElementsByClassName("first-page")[0].scrollTo(0,0);
-            answer = fruits[Math.floor(Math.random() * fruits.length)];
-    });
-    }
+function youWin() {
+    document.getElementsByClassName("won-page")[0].scrollIntoView();
+}
+
+
+
 
 
 
