@@ -20,7 +20,7 @@ function getUser () {
     if ( localStorage.getItem( "allPlayers" ) == null ) {
         return [];               // me retorna uma array vazia se nao tem nada no localStorage
     }
-    return JSON.parse( localStorage.getItem( "allPlayers" ) );  // retonra o que tem no local storage parseado
+    return JSON.parse( localStorage.getItem( "allPlayers" ) );  // retonra o que tem no local storage parse
 }
 
 function addPlayer () {
@@ -29,7 +29,7 @@ function addPlayer () {
     localStorage.setItem( "allPlayers", JSON.stringify( allPlayers ) );
 }
 
-window.load( function () {
+window.location.reload( function () {
     allPlayers = getUser();
 }
 );
