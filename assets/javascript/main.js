@@ -94,6 +94,15 @@ for ( i = 0; i < letters.length; i++ ) {
         }
         if ( currentWord.join( "" ) == answer ) {
 
+var countLife = 6
+
+function changeLifeGame() {
+    countLife--
+    console.log(countLife)
+    switch (countLife) {
+        case 5:
+            document.getElementById("head").classList.remove("figure-part");
+
             youWin();
         }
 
@@ -102,6 +111,29 @@ for ( i = 0; i < letters.length; i++ ) {
     }
 
 
+        case 4:
+            document.getElementById("body").classList.remove("figure-part");
+            break;
+
+        case 3:
+            document.getElementById("armL").classList.remove("figure-part");
+            break;
+
+        case 2:
+            document.getElementById("armR").classList.remove("figure-part");
+            break;
+
+        case 1:
+            document.getElementById("legL").classList.remove("figure-part");
+            break;
+
+        case 0:
+            document.getElementById("legR").classList.remove("figure-part");
+            document.getElementsByClassName("lost-page")[0].scrollIntoView();
+            countLife = 0
+            break;
+    }
+}
     const figureParts = document.querySelectorAll( ".figure-part" );
 
     // Display parts
@@ -120,6 +152,7 @@ for ( i = 0; i < letters.length; i++ ) {
             case 5:
                 document.getElementById( "body" ).classList.remove( "figure-part" );
                 break;
+ 
 
             case 4:
                 document.getElementById( "armL" ).classList.remove( "figure-part" );
@@ -132,6 +165,13 @@ for ( i = 0; i < letters.length; i++ ) {
             case 2:
                 document.getElementById( "legL" ).classList.remove( "figure-part" );
                 break;
+
+var playAgainBtn = document.querySelectorAll(".playAgain")
+    playAgainBtn.forEach(element => {
+        element.addEventListener("click", () => {
+            document.getElementsByClassName("won-page")[0].scrollIntoView();
+        });
+console.log(playAgainBtn)
 
             case 1:
                 document.getElementById( "legR" ).classList.remove( "figure-part" );
