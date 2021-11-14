@@ -9,42 +9,26 @@ const fruits = [
 ];
 
 const keyboard = document.querySelector( '#injectLetters' );
-const usedLetters = document.querySelector( '.clicked-letters' );
-const startGameBtn = document.getElementById( 'startGameBtn' );
-const lettersClicked = [];
-const answerWord = [];
-const HISTORY = [];
-let players = [];
 
 let alphabet;
 let letters;
 let letterBtn;
-let lettersReset = "";
-let currId = 0;
-let allPlayers;
-let username = document.getElementById( 'userName' ).value;
-let age = document.getElementById( 'age' ).value;
-let score = document.getElementById( 'score' ).value;
-let playersIds;
+let lettersClicked = [];
 
-// For loop to generate the alphabet from "A" to "Z"
-
-letters = new Array( ...alphabet );
-
+// FOR LOOP TO GENERATE THE ALPHABET FROM "A" TO "Z"
 for ( i = 9, alphabet = ''; ++i < 36; ) {
     alphabet += i.toString( 36 );
 }
 
+letters = new Array (...alphabet);
 
-// For loop to create buttons for each letter and append them to div parent and add innerHTML
+// FOR LOOP TO CREATE BUTTONS FOR EACH LETTER AND APPEND TO DIV PARENT AND ADD INNER HTML
 
-let btnLetters = document.querySelectorAll( '.btn-letters' );
-
-for ( i = 0; i < letters.length; i++ ) {
-    /*  btnLetters = document.querySelectorAll( '.btn-letters' ); */
-    letterBtn.setAttribute( 'id', letters[i] );
-    letterBtn.setAttribute( 'value', letters[i] );
-    letterBtn.setAttribute( 'class', 'btn-letters' );
+for (i in letters/* i = 0; i < letters.length; i++ */) {
+    letterBtn = document.createElement('button');
+    letterBtn.setAttribute('id', letters[i]);
+    letterBtn.setAttribute('value', letters[i]);
+    letterBtn.setAttribute('class', 'btn-letters')
     letterBtn.innerHTML = letters[i];
     keyboard.appendChild( letterBtn );
 
@@ -110,7 +94,6 @@ function changeLifeGame() {
         document.getElementById( "underLine" ).innerHTML = currentWord.join( " " );
     }
 
-
         case 4:
             document.getElementById("body").classList.remove("figure-part");
             break;
@@ -140,75 +123,10 @@ function changeLifeGame() {
 
     var countLife = 7;
 
-    function changeLifeGame () {
-        countLife--;
-        console.log( countLife );
-        switch ( countLife ) {
-            case 6:
-                document.getElementById( "head" ).classList.remove( "figure-part" );
-
-                break;
-
-            case 5:
-                document.getElementById( "body" ).classList.remove( "figure-part" );
-                break;
- 
-
-            case 4:
-                document.getElementById( "armL" ).classList.remove( "figure-part" );
-                break;
-
-            case 3:
-                document.getElementById( "armR" ).classList.remove( "figure-part" );
-                break;
-
-            case 2:
-                document.getElementById( "legL" ).classList.remove( "figure-part" );
-                break;
-
 var playAgainBtn = document.querySelectorAll(".playAgain")
     playAgainBtn.forEach(element => {
+        console.log(element)
         element.addEventListener("click", () => {
-            document.getElementsByClassName("won-page")[0].scrollIntoView();
+            document.getElementsByClassName("first-page")[0].scrollIntoView();
         });
-console.log(playAgainBtn)
-
-            case 1:
-                document.getElementById( "legR" ).classList.remove( "figure-part" );
-                break;
-
-            case 0:
-                document.getElementsByClassName( "lost-page" )[0].scrollIntoView();
-                countLife = 0;
-        }
-    }
-
-    function youWin () {
-        document.getElementsByClassName( "won-page" )[0].scrollIntoView();
-    }
-
-    // all users
-
-    // user Data
-
-    function player ( name, idade, total ) {
-        return {
-            username: name,
-            age: idade,
-            score: total,
-        };
-    };
-
-    function getUser () {
-
-        if ( localStorage.getItem( "allPlayers" ) == null ) {
-            return [];               // me retorna uma array vazia se nao tem nada no localStorage
-        }
-        return JSON.parse( localStorage.getItem( "allPlayers" ) );  // retonra o que tem no local storage parse
-    }
-
-    function addPlayer () {
-        userInputs = player( username, age, score );
-        allPlayers.push( userInputs );
-        localStorage.setItem( "allPlayers", JSON.stringify( allPlayers ) );
-    };
+    });
